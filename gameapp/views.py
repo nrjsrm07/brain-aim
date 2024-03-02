@@ -3,14 +3,19 @@ from django.shortcuts import render
 from django.contrib import messages
 from .forms import AddingQuestion
 from .models import Questions
-from django.db import connection
+import random
 
 
 def randomQuestionFromDB(level, truth):
-    with connection.cursor() as cur:
-         cur.execute(f"select question from questions where truth_dare = '{truth}' and level = '{level}' order by RANDOM() limit 1")
-         row = cur.fetchone()
-    return row
+    # Query for fetching a random question based on level and truth
+    questions = Questions.objects.filter(level=level, truth_dare=truth)
+    # Check if there are any questions matching the criteria
+    if questions:
+        # Select a random question from the queryset
+        random_question = random.choice(questions)
+        return random_question.question
+    else:
+        return "No question found for the given level and truth"
 
 # Create your views here.
 def home_view(request):
@@ -36,6 +41,6 @@ def truth_dare_view(request):
         truth = request.POST['truth_dare']
         truth = truth.lower()
         question = randomQuestionFromDB(level, truth)
-        messages.info(request, question[0])
+        messages.info(request, question)
         dataValues = {'level':level,'type':truth }
         return render(request, 'gameapp/question.html',dataValues) 
