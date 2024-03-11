@@ -28,10 +28,9 @@ STATIC_DIR =os.path.join(BASE_DIR, 'static')
 SECRET_KEY = 'django-insecure-r!=3ta=yu-6&5opwf1&yxlz+_z6gpyt7y=q0!%hmpcm@ytxc06'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['brain-aim.onrender.com']
 
 # Application definition
 
