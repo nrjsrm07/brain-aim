@@ -28,7 +28,13 @@ STATIC_DIR =os.path.join(BASE_DIR, 'static')
 SECRET_KEY = 'django-insecure-r!=3ta=yu-6&5opwf1&yxlz+_z6gpyt7y=q0!%hmpcm@ytxc06'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+
+# Set CSRF_COOKIE_SECURE to False for development purposes
+CSRF_COOKIE_SECURE = False
+
+# Optionally, set CSRF_COOKIE_HTTPONLY to True for added security
+CSRF_COOKIE_HTTPONLY = True
 
 ALLOWED_HOSTS = ['brain-aim.onrender.com']
 
