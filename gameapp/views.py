@@ -1,4 +1,5 @@
 # views.py
+
 from django.shortcuts import render
 from django.contrib import messages
 from .forms import AddingQuestion
@@ -19,13 +20,13 @@ def randomQuestionFromDB(level, truth):
 
 # Create your views here.
 def home_view(request):
-    return render(request, 'gameapp/WelcomePage.html')
+    return render(request, 'gameapp/welcome_page.html')
 
 def question_view(request):
-    return render(request, 'gameapp/QuestionPage.html')
+    return render(request, 'gameapp/question_page.html')
 
 def add_question_view(request):
-    return render(request, 'gameapp/AddQuestion.html')
+    return render(request, 'gameapp/add_question.html')
 
 def add_question(request):
     form = AddingQuestion(request.POST)
@@ -33,7 +34,7 @@ def add_question(request):
         form.save()
     context= {'form': form }
     messages.info(request,'Congratulations!! Question has been added successfully...')
-    return render(request, 'gameapp/AddedQuestion.html', context)
+    return render(request, 'gameapp/added_question.html', context)
 
 def truth_dare_view(request):
     if request.method == 'POST':

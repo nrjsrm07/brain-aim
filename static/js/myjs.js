@@ -1,48 +1,7 @@
-// let numberOfPlayers = sessionStorage.getItem("np");
-// let scoreTableContent = document.getElementById("scorecard");
-
-// const score_table = () => {
-//   try {
-//     let listOfPlayers = "";
-//     for (let i = 0; i < numberOfPlayers; i++) {
-//       let name = sessionStorage.getItem("name" + i);
-//       let score = sessionStorage.getItem("score" + i);
-//       let playerDetails =
-//         "<tr><td>" + name + "</td><td>" + score + "</td></tr>";
-//       listOfPlayers += playerDetails;
-//     }
-//     scoreTableContent.innerHTML = listOfPlayers;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+// myjs.js
 
 let currentPlayerKey = Number.parseInt(sessionStorage.getItem("bcd_value"));
 
-// function cpNameKey() {
-//   let currentPlayerNameKey = "";
-//   if (currentPlayerKey == numberOfPlayers) {
-//     currentPlayerKey = 0;
-//   }
-//   currentPlayerNameKey = "name" + currentPlayerKey;
-//   sessionStorage.setItem("bcd_value", currentPlayerKey + 1);
-//   return currentPlayerNameKey;
-// }
-
-// function print_name() {
-//   try {
-//     const currentPlayerNameKey = cpNameKey();
-//     const name = sessionStorage.getItem(currentPlayerNameKey);
-//     const turnid = document.getElementById("turn_id");
-//     const htmlContent =
-//       "<h1> <b>" +
-//       name +
-//       "</b>, choose level and than anyone from Truth or Dare</h1>";
-//     turnid.innerHTML = htmlContent;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
 
 function score_update(level, type) {
   const key = "score" + (currentPlayerKey - 1);
@@ -63,9 +22,6 @@ function score_update(level, type) {
   sessionStorage.setItem(key, points);
 }
 
-// score_table();
-
-// print_name();
 
 function taskDone(level, type) {
   score_update(level, type);
