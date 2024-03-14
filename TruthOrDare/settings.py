@@ -36,6 +36,10 @@ CSRF_COOKIE_SECURE = False
 # Optionally, set CSRF_COOKIE_HTTPONLY to True for added security
 CSRF_COOKIE_HTTPONLY = True
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://brain-aim.onrender.com',
+]
+
 ALLOWED_HOSTS = ['brain-aim.onrender.com']
 
 # Application definition
