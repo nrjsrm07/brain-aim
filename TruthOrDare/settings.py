@@ -40,7 +40,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://brain-aim.onrender.com',
 ]
 
-ALLOWED_HOSTS = ['brain-aim.onrender.com']
+ALLOWED_HOSTS = ['brain-aim.onrender.com', "127.0.0.1"]
 
 # Application definition
 
