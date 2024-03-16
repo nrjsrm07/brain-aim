@@ -1,0 +1,301 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html>
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.js"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/home.css' %}"
+    />
+  </head>
+  <body>
+    <div class="master">
+      <section class="background-radial-gradient">
+        <div class='nav-header' style='margin: 10px 0 0 10px'>
+          <a class="nav-head" href="/">
+            <img src= "{% static 'img/logo2.png'%}" alt="Logo" width="50" height="50"> 
+            <span  style= "margin-left : 10px;">Dare to Discover</span>
+          </a>
+          <a class="nav-head" href="game" style="position: absolute; top: 10px; right: 10px;">
+            <span  style= "margin-left : 10px;">Wanna try without Login</span>
+            <img src= "{% static 'img/game.png'%}" alt="Game Logo" width="50" height="50"> 
+            </a>
+        </div>
+        <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+          <div class="row gx-lg-5 align-items-center mb-5">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <h1
+                class="my-5 display-5 fw-bold ls-tight"
+                style="color: hsl(218, 81%, 95%)"
+              >
+                Welcome to the <br />
+                <span style="color: hsl(218, 81%, 75%)"
+                  >World of Adventure !</span
+                >
+              </h1>
+              <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
+                Explore Dare to Discover, the electrifying game perfect for an unforgettable moments with friends! Dive into the excitement of our Dare to Discover app, featuring over 1,000 dares ranging from mild to wild. Are you ready to experience the thrill? Enter your names and let the fun begin!
+              </p>
+            </div>
+
+            <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+              <div
+                id="radius-shape-1"
+                class="position-absolute rounded-circle shadow-5-strong"
+              ></div>
+              <div
+                id="radius-shape-2"
+                class="position-absolute shadow-5-strong"
+              ></div>
+
+              <div class="card bg-glass">
+                <div class="card-body px-4 py-5 px-md-5">
+                  <!-- Sign In Form -->
+                  <div id="signin-id">
+                    <form action="{% url 'home' %}" method="POST">
+                      {% csrf_token %} 
+                      {% if messages %} 
+                      {% for message in messages %} 
+                      {% if message.tags == 'success' %}
+                      <div class="alert alert-success">{{ message }}</div>
+                      {% elif message.tags == 'error' %}
+                      <div class="alert alert-danger">{{ message }}</div>
+                      {% else %}
+                      <div class="alert alert-info">{{ message }}</div>
+                      {% endif %} {% endfor %} {% endif %}
+
+                      <!-- Username input -->
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="username"
+                          >Username</label
+                        >
+
+                        <input
+                          type="text"
+                          id="username"
+                          class="form-control user-input"
+                          name="username"
+                          required
+                        />
+                      </div>
+
+                      <!-- Password input -->
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="password"
+                          >Password</label
+                        >
+
+                        <input
+                          type="password"
+                          id="password"
+                          class="form-control user-input"
+                          name="password"
+                          required
+                        />
+                      </div>
+
+                      <!-- Submit button -->
+                      <button
+                        type="submit"
+                        class="btn btn-primary btn-block mb-4"
+                      >
+                        Sign In
+                      </button>
+
+                      <!-- Register buttons -->
+                      <div class="text-center">
+                        <p>or sign in with:</p>
+                        <button
+                          type="button"
+                          class="btn btn-link btn-floating mx-5"
+                        >
+                          <i class="fab fa-facebook-f"></i>
+                        </button>
+
+                        <button
+                          type="button"
+                          class="btn btn-link btn-floating mx-5"
+                        >
+                          <i class="fab fa-google"></i>
+                        </button>
+
+                        <button
+                          type="button"
+                          class="btn btn-link btn-floating mx-5"
+                        >
+                          <i class="fab fa-twitter"></i>
+                        </button>
+                      </div>
+                    </form>
+                    <br />
+                    <div>
+                      <p class="mb-0">
+                        Don't have an account?
+                        <a href="#" id="signup-btn">Sign Up</a>
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Sign Up Form -->
+                  <div id="signup-id" style="display: none">
+                    <form action="{% url 'home' %}" method="POST">
+                      {% csrf_token %}
+                      <div class="row">
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="form3Example1"
+                              >First name</label
+                            >
+                            <input
+                              type="text"
+                              id="form3Example1"
+                              class="form-control user-input"
+                              name="first_name"
+                              ,
+                              required
+                            />
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="last-name"
+                              >Last name</label
+                            >
+                            <input
+                              type="text"
+                              id="last-name"
+                              class="form-control user-input"
+                              name="last_name"
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Email input -->
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="email"
+                          >Email address</label
+                        >
+                        <input
+                          type="email"
+                          id="email"
+                          class="form-control user-input"
+                          name="email"
+                          required
+                        />
+                      </div>
+                      <!-- Username input -->
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="signup-username"
+                          >Username</label
+                        >
+
+                        <input
+                          type="text"
+                          id="signup-username"
+                          class="form-control user-input"
+                          name="username"
+                          required
+                        />
+                      </div>
+
+                      <!-- Password input -->
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="signup-password"
+                          >Password</label
+                        >
+
+                        <input
+                          type="password"
+                          id="signup-password"
+                          class="form-control user-input"
+                          name="password"
+                          required
+                        />
+                      </div>
+
+                      <!-- Submit button -->
+                      <button
+                        type="submit"
+                        class="btn btn-primary btn-block mb-4"
+                      >
+                        Sign up
+                      </button>
+
+                      <!-- Register buttons -->
+                      <div class="text-center">
+                        <p>or sign up with:</p>
+                        <button
+                          type="button"
+                          class="btn btn-link btn-floating mx-5"
+                        >
+                          <i class="fab fa-facebook-f"></i>
+                        </button>
+
+                        <button
+                          type="button"
+                          class="btn btn-link btn-floating mx-5"
+                        >
+                          <i class="fab fa-google"></i>
+                        </button>
+
+                        <button
+                          type="button"
+                          class="btn btn-link btn-floating mx-5"
+                        >
+                          <i class="fab fa-twitter"></i>
+                        </button>
+                      </div>
+                    </form>
+                    <br />
+                    <div>
+                      <p class="mb-0">
+                        Already have an account?
+                        <a href="#" id="signin-btn">Sign In</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+  {% load static %}
+    <script
+      type="text/javascript"
+      src="{% static 'js/home.js' %}"
+    ></script>
+</html>

@@ -1,0 +1,84 @@
+/* home.css */
+
+.master{
+  max-height: 100%;
+}
+
+.background-radial-gradient {
+  height: 100vh;
+
+  background-color: hsl(218, 41%, 15%);
+  background-image: radial-gradient(650px circle at 0% 0%,
+      hsl(218, 41%, 35%) 15%,
+      hsl(218, 41%, 30%) 35%,
+      hsl(218, 41%, 20%) 75%,
+      hsl(218, 41%, 19%) 80%,
+      transparent 100%),
+    radial-gradient(1250px circle at 100% 100%,
+      hsl(218, 41%, 45%) 15%,
+      hsl(218, 41%, 30%) 35%,
+      hsl(218, 41%, 20%) 75%,
+      hsl(218, 41%, 19%) 80%,
+      transparent 100%);
+}
+
+#radius-shape-1 {
+  height: 220px;
+  width: 220px;
+  top: -60px;
+  left: -130px;
+  background: radial-gradient(#44006b, #ad1fff);
+  overflow: hidden;
+}
+
+#radius-shape-2 {
+  border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+  bottom: -60px;
+  right: -110px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(#44006b, #ad1fff);
+  overflow: hidden;
+}
+
+.bg-glass {
+  background-color: hsla(0, 0%, 100%, 0.9) !important;
+  backdrop-filter: saturate(200%) blur(25px);
+}
+
+
+/* For the paragraph */
+.opacity-70 {
+  font-size: 1.2rem;
+}
+
+
+/* For the form inputs */
+.form-control {
+  font-size: 1rem;
+  width: 50%;
+}
+
+.nav-head {
+  color: white;
+  font-size: 24px;
+}
+
+.blink {
+  animation: blinker 1.5s linear infinite;
+  color: rgb(240, 233, 233);
+  font-weight: 900;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+footer {
+  color: rgb(240, 233, 233);
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}

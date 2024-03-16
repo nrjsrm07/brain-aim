@@ -1,140 +1,119 @@
-<!-- welcome_page.html -->
-
+<!-- home.html -->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Truth Dare</title>
-    <style>
-        body {
-            background: url(https://images.unsplash.com/photo-1574610758891-5b809b6e6e2e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80)
-        }
+    <title>Start the Fun</title>
 
-        /* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
-        .navbar {
-            overflow: hidden;
-            /* background-color: #333; */
-            position: sticky;
-            position: -webkit-sticky;
-            top: 0;
-            
-        }
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
 
-        /* Style the navigation bar links */
-        .navbar a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-        /* Right-aligned link */
-        .navbar a.right {
-            float: right;
-        }
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.js"
+    ></script>
+    {% load static %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/welcome_page.css' %}"
+    />
+  </head>
+  <body>
+    <div class="background-radial-gradient">
+      <div class="nav-header" style="margin: 10px 0 0 10px">
+        <a class="nav-head" href="/">
+          <img
+            src="{% static 'img/logo2.png'%}"
+            alt="Logo"
+            width="50"
+            height="50"
+          />
+          <span class="nav-text ml-5" style="margin-left: 10px"
+            >Dare to Discover</span
+          >
+        </a>
+        <a
+          class="nav-head"
+          href="/"
+          style="position: absolute; top: 10px; right: 10px"
+        >
+          <img
+            src="{% static 'img/login.png'%}"
+            alt="Logo"
+            width="50"
+            height="50"
+          />
+          <span class="nav-text ml-5" style="margin-left: 10px"
+            >Wanna Login</span
+          >
+        </a>
+      </div>
 
-        /* Change color on hover */
-        .navbar a:hover {
-            background-color: rgb(255, 255, 255);
-            color: rgb(5, 5, 5);
-            font-weight: 900;
-        }
-
-        .blink {
-            animation: blinker 1.5s linear infinite;
-            color: red;
-        }
-
-        @keyframes blinker {
-            50% {
-                opacity: 0;
-            }
-        }
-
-        footer {
-            position:relative;
-            bottom: 0;
-            width: 100%;
-            /* height: 100px; */
-        }
-    </style>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-        crossorigin="anonymous"></script>
-</head>
-
-<body>
-    <nav class="navbar navbar-light">
-        <a class="navbar-brand" href="WelcomePage.html">Home</a>
-        <a class="navbar-brand" href="AddQuestion.html" class="right">Add Question</a>
-    </nav>
-
-    <header class="container-fluid p-4 text-white text-center">
-        <h1 class="display-3">TRUTH or DARE</h1>
-    </header>
-
-
-    <marquee class="display-4 text-white" direction="left" scrollamount="29">
-        Welcome to this wonderful game
-    </marquee>
-
-
-
-    <div>
-        <div>
-            <label class="display-6 text-white">Please Enter Number of Players want to play this wonderful game</label>
-            <input placeholder="Number of players" class="display-6" type="number" id="nbp">
-            <button type="button" style="margin: 0px 0px 20px 20px;" class="btn btn-danger btn-lg" onclick="addName()">
-                <b> Enter </b>
-            </button>
-            <div id="inutContainer" >
+      <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+        <div class="row gx-lg-5 align-items-center mb-5">
+          <div class="col-lg-3 mb-5 mb-lg-0"></div>
+          <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+            <div
+              id="radius-shape-1"
+              class="position-absolute rounded-circle shadow-5-strong"
+            ></div>
+            <div
+              id="radius-shape-2"
+              class="position-absolute shadow-5-strong"
+            ></div>
+            <div class="card bg-glass">
+              <div
+                class="card-body px-4 py-5 px-md-5"
+                style="text-align: -webkit-center"
+              >
+                <marquee direction="left" scrollamount="9">
+                  Dare to Discover: Where Every Choice Leads to Adventure!
+                </marquee>
+                <input
+                  placeholder="Number of players"
+                  class="form-control mb-1"
+                  type="number"
+                  id="nbp"
+                />
+                <button
+                  type="submit"
+                  onclick="addName()"
+                  class="btn btn-primary"
+                >
+                  Enter
+                </button>
+                <div id="inutContainer"></div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
+
+      <footer class="blink container-fluid p-3 text-center">
+        Here Fun and Adventure Collide!
+      </footer>
     </div>
+  </body>
 
-    <footer class=" blink display-5 container-fluid p-5 text-white text-center">
-
-        Disclaimer: The Developer of this website RESPECTS Women.
-
-    </footer>
-
-</body>
-
+  <script
+    type="text/javascript"
+    src="{% static 'js/welcome_page.js' %}"
+  ></script>
 </html>
-
-<script type="text/javascript">
-    function startgame() {
-        const numberOfPlayers = document.getElementById("nbp").value;
-        sessionStorage.setItem("np", numberOfPlayers)
-        for (let i = 0; i < numberOfPlayers; i++) {
-            let name = document.getElementById("form" + i).value;
-            sessionStorage.setItem("name" + i, name);
-        }
-        sessionStorage.setItem('bcd_value', 0);
-        window.location = 'QuestionPage.html';
-    }
-    function addName() {
-        const numberOfPlayers = document.getElementById("nbp").value;
-        let inputContainer = document.getElementById("inutContainer");
-        const ibe1 = '<label class="display-6 text-white">Please enter name of the player</label><input type="text" class="display-6" style="margin:20px" id="form'
-        const ibe2 = '" placeholder="Name of the player"><br>';
-        let bv = '';
-        for (let i = 0; i < numberOfPlayers; i++) {
-            bv += (ibe1 + i + ibe2);
-        }
-        bv += '<button style="margin:20px" id="startbtn" class="btn btn-primary btn-lg" onclick="startgame()">Start the Game</button>';
-        inputContainer.innerHTML = bv;
-        for (let i = 0; i < numberOfPlayers; i++) {
-            sessionStorage.setItem('score' + i, 0)
-        }
-    } 
-</script>
