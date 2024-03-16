@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'gameapp',
     'corsheaders',
+    'core',
 ]
 
 MIDDLEWARE = [
