@@ -29,13 +29,13 @@ STATIC_DIR =os.path.join(BASE_DIR, 'static')
 SECRET_KEY = 'django-insecure-r!=3ta=yu-6&5opwf1&yxlz+_z6gpyt7y=q0!%hmpcm@ytxc06'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Set CSRF_COOKIE_SECURE to False for development purposes
-CSRF_COOKIE_SECURE = False
+# CSRF_COOKIE_SECURE = False
 
 # Optionally, set CSRF_COOKIE_HTTPONLY to True for added security
-CSRF_COOKIE_HTTPONLY = True
+# CSRF_COOKIE_HTTPONLY = True
 
 CSRF_TRUSTED_ORIGINS = [
     'https://brain-aim.onrender.com',
@@ -52,8 +52,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gameapp',
-    'corsheaders',
+    # 'corsheaders',
     'core',
+    #Third party app
+    'rest_framework',
+    
 ]
 
 MIDDLEWARE = [
@@ -65,7 +68,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -109,7 +111,6 @@ WSGI_APPLICATION = 'TruthOrDare.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'ENFORCE_SCHEMA': False,
         'CLIENT': 
         {
             'host': f'mongodb+srv://{MONGODB_USER}:{MONGODB_PASSWORD}@{MONGODB_HOST}/?retryWrites=true&w=majority&appName={MONGODB_APP}',
@@ -157,3 +158,12 @@ STATICFILES_DIRS=[STATIC_DIR,]
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Email Backend Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  
+EMAIL_HOST = os.getenv('EMAIL_HOST')  
+EMAIL_PORT = os.getenv('EMAIL_PORT')  
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')  
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  

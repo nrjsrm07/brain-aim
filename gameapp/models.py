@@ -1,6 +1,7 @@
 # models.py
 
-from djongo import models
+# from djongo import models
+from django.db import models
 
 class Questions(models.Model):
     truth_dare = models.CharField(max_length=255)

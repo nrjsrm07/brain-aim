@@ -3,7 +3,7 @@ from django.contrib import admin
 from gameapp import views
 
 urlpatterns = [
-    path('',views.home_view, name='game'),
+    path('',views.home_view, name='startgame'),
     path('WelcomePage.html',views.home_view ),
     path('QuestionPage.html',views.question_view ),
     path('AddQuestion.html',views.add_question_view ),

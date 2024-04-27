@@ -44,7 +44,7 @@
             <img src= "{% static 'img/logo2.png'%}" alt="Logo" width="50" height="50"> 
             <!-- <span  style= "margin-left : 10px;">Dare to Discover</span> -->
           </a>
-          <a class="nav-head" href="game" style="position: absolute; top: 10px; right: 10px;">
+          <a class="nav-head" href="startgame" style="position: absolute; top: 10px; right: 10px;">
             <span  style= "margin-left : 10px;">Try without login</span>
             <img src= "{% static 'img/game.png'%}" alt="Game Logo" width="50" height="50"> 
             </a>
@@ -83,7 +83,7 @@
                 <div class="card-body px-4 py-5 px-md-5">
                   <!-- Sign In Form -->
                   <div id="signin-id">
-                    <form action="{% url 'home' %}" method="POST">
+                    <form action="{% url 'login' %}" method="POST">
                       {% csrf_token %} 
                       {% if messages %} 
                       {% for message in messages %} 
@@ -169,7 +169,7 @@
 
                   <!-- Sign Up Form -->
                   <div id="signup-id" style="display: none">
-                    <form action="{% url 'home' %}" method="POST">
+                    <form action="{% url 'signup' %}" method="POST">
                       {% csrf_token %}
                       <div class="row">
                         <div class="col-md-6 mb-4">
@@ -181,7 +181,7 @@
                               type="text"
                               id="form3Example1"
                               class="form-control user-input"
-                              name="first_name"
+                              name="firstname"
                               ,
                               required
                             />
@@ -197,7 +197,7 @@
                               type="text"
                               id="last-name"
                               class="form-control user-input"
-                              name="last_name"
+                              name="lastname"
                               required
                             />
                           </div>
