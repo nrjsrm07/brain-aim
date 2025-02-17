@@ -112,7 +112,7 @@ DATABASES = {
         'ENFORCE_SCHEMA': False,
         'CLIENT': 
         {
-            'host': f'mongodb+srv://{MONGODB_USER}:{MONGODB_PASSWORD}@{MONGODB_HOST}/?retryWrites=true&w=majority&appName={MONGODB_APP}',
+            'host': f'mongodb+srv://{MONGODB_USER}:{MONGODB_PASSWORD}@brainaimcluster.80z1pzq.mongodb.net/',
         }
     }
 }
